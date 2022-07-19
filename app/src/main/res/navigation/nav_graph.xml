@@ -9,7 +9,7 @@
         android:id="@+id/favoliteFragment"
         android:name="com.example.newsapp.FavoliteFragment"
         android:label="fragment_favolite"
-        tools:layout="@layout/fragment_favolite"/>
+        tools:layout="@layout/fragment_favorite"/>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.newsapp.SearchFragment"
