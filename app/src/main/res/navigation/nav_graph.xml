@@ -6,9 +6,14 @@
     app:startDestination="@id/mainActivity">
 
     <fragment
-        android:id="@+id/favoliteFragment"
-        android:name="com.example.newsapp.FavoliteFragment"
-        android:label="fragment_favolite"
+        android:id="@+id/homeFragment"
+        android:name="com.example.newsapp.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home"/>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.newsapp.FavoriteFragment"
+        android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite"/>
     <fragment
         android:id="@+id/searchFragment"
