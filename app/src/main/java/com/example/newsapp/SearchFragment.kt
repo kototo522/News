@@ -7,7 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.semantics.Role.Companion.Image
+import coil.ImageLoader
 import coil.compose.rememberImagePainter
+import coil.load
+import coil.request.ImageRequest
+import com.example.newsapp.databinding.FragmentSearchBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,6 +45,23 @@ class SearchFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        val binding = FragmentSearchBinding.bind(view)
+
+//        val imageUrl = "https://developer.android.com/images/brand/Android_Robot.png"
+//        val request = ImageRequest.Builder(requireContext())
+//            .data(imageUrl)
+//            .target(binding.imageView)
+//            .build()
+//        ImageLoader.Builder(requireContext())
+//            .build()
+//            .enqueue(request)
+        binding.imageView.load("https://developer.android.com/images/brand/Android_Robot.png")
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -60,4 +81,5 @@ class SearchFragment : Fragment() {
                 }
             }
     }
+
 }
