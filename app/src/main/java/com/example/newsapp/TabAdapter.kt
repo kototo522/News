@@ -1,53 +1,16 @@
-import android.content.Context
-import android.os.Bundle
-import android.view.View
+package com.example.newsapp
+
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
+import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.newsapp.R
-import com.example.newsapp.Tab01Fragment
-import com.example.newsapp.Tab02Fragment
-import com.example.newsapp.databinding.FragmentHomeBinding
 
-class TabAdapter(fa: FragmentManager, private val context: Context): FragmentStateAdapter(fa){
+class TabAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
-    override fun getItemCount(position: Int): Fragment {
-        return when(position){
-            0 -> {
-                Tab01Fragment()
-            }
-            else ->  {
-                Tab02Fragment()
-            }
-        }
+    companion object {
+        private val pageList = listOf(FavoriteFragment(), SearchFragment())
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
-        return when(position){
-            0 -> {
-                "tab_01"
-            }
-            else ->  {
-                "tab_02"
-            }
-        }
-    }
+    override fun getItemCount(): Int = pageList.size
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        override fun TabLayoutMediator(position: Int): CharSequence? {
-            return when(position){
-                0 -> {
-                    "tab_01"
-                }
-                else ->  {
-                    "tab_02"
-                }
-            }
-        }.attach()
-    }
-
-    override fun getItemCount(): Int {
-        return 2
-    }
+    override fun createFragment(position: Int): Fragment = pageList[position]
 }
