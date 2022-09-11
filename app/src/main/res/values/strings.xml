@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fragment_tab_02">fragment_tab_02 を表示</string>
     <string name="fragment_tab_01">fragment_tab_01 を表示</string>
+    <string name="title">TITLE</string>
+    <string name="textview">TextView</string>
 </resources>
