@@ -47,7 +47,6 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val binding = FragmentSearchBinding.bind(view)
         binding.imageView.load("https://developer.android.com/images/brand/Android_Robot.png")
     }
