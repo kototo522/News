@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import coil.load
 import com.example.newsapp.databinding.FragmentSearchBinding
 import com.example.newsapp.databinding.FragmentTab01Binding
 import com.example.newsapp.databinding.FragmentTab02Binding
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class Tab01Fragment: Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,6 +29,7 @@ class Tab02Fragment: Fragment(){
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentTab02Binding.bind(view)
         binding.imageView.load("https://harajuku-pop.com/wp-content/uploads/2021/06/a2c615d59be789b047a89fa9d9985590.jpg")
+
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_tab_02,container,false)

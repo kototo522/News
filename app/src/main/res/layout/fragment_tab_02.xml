@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="fragment_tab_02 を表示"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="99dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
-        android:layout_marginTop="80dp"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView"
@@ -26,7 +22,7 @@
             android:layout_height="100dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
-            android:contentDescription="TODO"/>
+            android:contentDescription="TODO" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,4 +44,4 @@
                 android:text="@string/textview" />
         </LinearLayout>
     </LinearLayout>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
