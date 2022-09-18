@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import coil.load
+import com.example.newsapp.databinding.FragmentFavoriteBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +37,12 @@ class FavoriteFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favorite, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val binding = FragmentFavoriteBinding.bind(view)
+      //  binding.imageView.load("https://dol.ismcdn.jp/mwimgs/5/d/1080m/img_7e0b8adba77c91687a8078920dedc7be160077.jpg")
     }
 
     companion object {
