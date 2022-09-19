@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 data class Affirmation(val stringResourceId: Int)
 
 class Datasource {
-
     fun loadAffirmations(): List<Affirmation> {
         return listOf<Affirmation>(
             Affirmation(R.string.affirmation1),

@@ -25,14 +25,6 @@ class FavoriteFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val myDataset = Datasource().loadAffirmations()
-
-//        val recyclerView: RecyclerView = findViewById(R.id.RecyclerList)
-//        recyclerView.adapter = ItemAdapter(requireContext(), myDataset)
-//
-//        recyclerView.setHasFixedSize(true)
-
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -45,6 +37,17 @@ class FavoriteFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favorite, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val myDataset = Datasource().loadAffirmations()
+
+        val recyclerView: RecyclerView = view.findViewById(R.id.RecyclerList)
+        recyclerView.adapter = ItemAdapter(requireContext(), myDataset)
+        recyclerView.setHasFixedSize(true)
+
     }
 
     companion object {
