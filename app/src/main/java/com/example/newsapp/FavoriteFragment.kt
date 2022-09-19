@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import coil.load
+import androidx.recyclerview.widget.RecyclerView
 import com.example.newsapp.databinding.FragmentFavoriteBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -25,6 +25,14 @@ class FavoriteFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val myDataset = Datasource().loadAffirmations()
+
+//        val recyclerView: RecyclerView = findViewById(R.id.RecyclerList)
+//        recyclerView.adapter = ItemAdapter(requireContext(), myDataset)
+//
+//        recyclerView.setHasFixedSize(true)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -37,12 +45,6 @@ class FavoriteFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favorite, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentFavoriteBinding.bind(view)
-      //  binding.imageView.load("https://dol.ismcdn.jp/mwimgs/5/d/1080m/img_7e0b8adba77c91687a8078920dedc7be160077.jpg")
     }
 
     companion object {
