@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import coil.load
 import com.example.newsapp.databinding.FragmentSearchBinding
@@ -19,6 +20,14 @@ class Tab01Fragment: Fragment(){
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+//
+//        val myTitleDataset = Datasource().loadTitles()
+//        val myTextDataset = Datasource().loadTexts()
+//        val recyclerView: RecyclerView = view.findViewById<RecyclerView>(R.id.RecyclerList)
+//        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset)
+//        recyclerView.adapter = ItemAdapter(requireContext(), myTextDataset)
+//        recyclerView.setHasFixedSize(true)
+
         val binding = FragmentTab01Binding.bind(view)
         binding.imageView.load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6eVhTlIO8QxiqUK8M7-4q87TN5_x2LgrbA&usqp=CAU")
     }

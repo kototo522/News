@@ -6,18 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.newsapp.databinding.FragmentFavoriteBinding
+import com.example.newsapp.databinding.FragmentSearchBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FavoriteFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FavoriteFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -41,11 +38,11 @@ class FavoriteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val myDataset = Datasource().loadAffirmations()
-
-        val recyclerView: RecyclerView = view.findViewById(R.id.RecyclerList)
-        recyclerView.adapter = ItemAdapter(requireContext(), myDataset)
+        val myTitleDataset = Datasource().loadTitles()
+        val myTextDataset = Datasource().loadTexts()
+        val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
+        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset)
+        recyclerView.adapter = ItemAdapter(requireContext(), myTextDataset)
         recyclerView.setHasFixedSize(true)
 
     }
