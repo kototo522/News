@@ -1,9 +1,11 @@
 package com.example.newsapp
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.graphics.Color.Companion.Blue
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.createViewModelLazy
 import androidx.recyclerview.widget.RecyclerView
@@ -29,8 +31,25 @@ class HomeFragment : Fragment() {
 
         viewPager = view.findViewById(R.id.pager)
         val tabLayout = view.findViewById<TabLayout>(R.id.tab_layout)
+        // tabAdapterの中にフラグメントのアクティビティを渡す
+        val tabAdapter  = TabAdapter(requireActivity())
+        binding.pager.adapter = tabAdapter
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                if (tab != null) {
+                    binding.pager.currentItem = tab.position
+                }
+            }
+        })
+
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = "OBJECT ${(position + 1)}"
+            val view = layoutInflater.inflate(R.layout.appbar_item, null)
+            if(position==0) view.setBackgroundColor(Color.BLUE)
+            else view.setBackgroundColor(Color.RED)
+            tab.customView = view
         }.attach()
     }
 

@@ -41,10 +41,8 @@ class FavoriteFragment : Fragment() {
         val myTitleDataset = Datasource().loadTitles()
         val myTextDataset = Datasource().loadTexts()
         val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
-        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset)
-        recyclerView.adapter = ItemAdapter(requireContext(), myTextDataset)
+        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset, myTextDataset)
         recyclerView.setHasFixedSize(true)
-
     }
 
     companion object {

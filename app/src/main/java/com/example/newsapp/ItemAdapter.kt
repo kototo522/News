@@ -43,7 +43,8 @@ class Datasource {
 
 class ItemAdapter(
     private val context: Context,
-    private val dataset: List<Affirmation>
+    private val titleList: List<Affirmation>,
+    private val textList: List<Affirmation>
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
@@ -61,10 +62,9 @@ class ItemAdapter(
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = dataset[position]
-        holder.titleView.text = context.resources.getString(item.stringResourceId)
-        holder.textView.text = context.resources.getString(item.stringResourceId)
+        holder.titleView.text = context.resources.getString(titleList[position].stringResourceId)
+        holder.textView.text = context.resources.getString(textList[position].stringResourceId)
     }
 
-    override fun getItemCount() = dataset.size
+    override fun getItemCount() = titleList.size
 }
