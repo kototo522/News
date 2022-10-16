@@ -20,7 +20,7 @@ class Tab01Fragment: Fragment(){
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//
+
 //        val myTitleDataset = Datasource().loadTitles()
 //        val myTextDataset = Datasource().loadTexts()
 //        val recyclerView: RecyclerView = view.findViewById<RecyclerView>(R.id.RecyclerList)
