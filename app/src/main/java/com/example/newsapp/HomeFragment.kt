@@ -47,8 +47,8 @@ class HomeFragment : Fragment() {
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = "OBJECT ${(position + 1)}"
             val view = layoutInflater.inflate(R.layout.appbar_item, null)
-            if(position==0) view.setBackgroundColor(Color.BLUE)
-            else view.setBackgroundColor(Color.RED)
+            if(position==0) view.setBackgroundColor(Color.parseColor("#4444DD"))
+            else view.setBackgroundColor(Color.parseColor("#D83737"))
             tab.customView = view
         }.attach()
     }
