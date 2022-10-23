@@ -12,8 +12,8 @@
 
     <item
         android:id="@+id/favoriteFragment"
-        android:icon="@drawable/star"
-        android:title="star" />
+        android:icon="@drawable/favorite"
+        android:title="favorite" />
 
     <item
         android:id="@+id/settingFragment"
