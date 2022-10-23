@@ -32,7 +32,6 @@ class FavoriteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favorite, container, false)
     }
 
@@ -40,8 +39,9 @@ class FavoriteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val myTitleDataset = Datasource().loadTitles()
         val myTextDataset = Datasource().loadTexts()
+        val myImageDataset = Datasource().loadImages()
         val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
-        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset, myTextDataset)
+        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset, myTextDataset, myImageDataset)
         recyclerView.setHasFixedSize(true)
     }
 

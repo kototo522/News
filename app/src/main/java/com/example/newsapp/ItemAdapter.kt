@@ -1,4 +1,5 @@
 package com.example.newsapp
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.newsapp.databinding.FragmentFavoriteBinding
 
 data class Affirmation(val stringResourceId: Int)
@@ -25,6 +27,7 @@ class Datasource {
             Affirmation(R.string.titleList10)
         )
     }
+
     fun loadTexts(): List<Affirmation> {
         return listOf<Affirmation>(
             Affirmation(R.string.textList1),
@@ -39,12 +42,28 @@ class Datasource {
             Affirmation(R.string.textList10)
         )
     }
+
+    fun loadImages(): List<String> {
+        return listOf<String>(
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6eVhTlIO8QxiqUK8M7-4q87TN5_x2LgrbA&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6eVhTlIO8QxiqUK8M7-4q87TN5_x2LgrbA&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6eVhTlIO8QxiqUK8M7-4q87TN5_x2LgrbA&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6eVhTlIO8QxiqUK8M7-4q87TN5_x2LgrbA&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6eVhTlIO8QxiqUK8M7-4q87TN5_x2LgrbA&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6eVhTlIO8QxiqUK8M7-4q87TN5_x2LgrbA&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6eVhTlIO8QxiqUK8M7-4q87TN5_x2LgrbA&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6eVhTlIO8QxiqUK8M7-4q87TN5_x2LgrbA&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6eVhTlIO8QxiqUK8M7-4q87TN5_x2LgrbA&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6eVhTlIO8QxiqUK8M7-4q87TN5_x2LgrbA&usqp=CAU"
+        )
+    }
 }
 
 class ItemAdapter(
     private val context: Context,
     private val titleList: List<Affirmation>,
-    private val textList: List<Affirmation>
+    private val textList: List<Affirmation>,
+    private val imageList: List<String>
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
@@ -64,6 +83,7 @@ class ItemAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.titleView.text = context.resources.getString(titleList[position].stringResourceId)
         holder.textView.text = context.resources.getString(textList[position].stringResourceId)
+        holder.imageView.load(imageList[position])
     }
 
     override fun getItemCount() = titleList.size

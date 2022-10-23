@@ -20,16 +20,12 @@ class Tab01Fragment: Fragment(){
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-//        val myTitleDataset = Datasource().loadTitles()
-//        val myTextDataset = Datasource().loadTexts()
-//        val recyclerView: RecyclerView = view.findViewById<RecyclerView>(R.id.RecyclerList)
-//        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset)
-//        recyclerView.adapter = ItemAdapter(requireContext(), myTextDataset)
-//        recyclerView.setHasFixedSize(true)
-
-        val binding = FragmentTab01Binding.bind(view)
-        binding.imageView.load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6eVhTlIO8QxiqUK8M7-4q87TN5_x2LgrbA&usqp=CAU")
+        val myTitleDataset = Datasource().loadTitles()
+        val myTextDataset = Datasource().loadTexts()
+        val myImageDataset = Datasource().loadImages()
+        val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
+        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset, myTextDataset, myImageDataset)
+        recyclerView.setHasFixedSize(true)
     }
 }
 
@@ -39,7 +35,11 @@ class Tab02Fragment: Fragment(){
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentTab02Binding.bind(view)
-        binding.imageView.load("https://harajuku-pop.com/wp-content/uploads/2021/06/a2c615d59be789b047a89fa9d9985590.jpg")
+        val myTitleDataset = Datasource().loadTitles()
+        val myTextDataset = Datasource().loadTexts()
+        val myImageDataset = Datasource().loadImages()
+        val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
+        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset, myTextDataset, myImageDataset)
+        recyclerView.setHasFixedSize(true)
     }
 }

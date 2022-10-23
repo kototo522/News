@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.semantics.Role.Companion.Image
+import androidx.recyclerview.widget.RecyclerView
 import coil.ImageLoader
 import coil.compose.rememberImagePainter
 import coil.load
@@ -47,8 +48,12 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentSearchBinding.bind(view)
-        binding.imageView.load("https://developer.android.com/images/brand/Android_Robot.png")
+        val myTitleDataset = Datasource().loadTitles()
+        val myTextDataset = Datasource().loadTexts()
+        val myImageDataset = Datasource().loadImages()
+        val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
+        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset, myTextDataset, myImageDataset)
+        recyclerView.setHasFixedSize(true)
     }
 
     companion object {
