@@ -65,7 +65,6 @@ class ItemAdapter(
     private val textList: List<Affirmation>,
     private val imageList: List<String>
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
-
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val titleView: TextView = view.findViewById(R.id.titleView)
         val textView: TextView = view.findViewById(R.id.textView)
@@ -73,10 +72,8 @@ class ItemAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-
         val adapterLayout = LayoutInflater.from(parent.context)
             .inflate(R.layout.card_item, parent, false)
-
         return ItemViewHolder(adapterLayout)
     }
 
