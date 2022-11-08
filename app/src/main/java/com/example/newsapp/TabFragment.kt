@@ -18,13 +18,12 @@ class Tab01Fragment: Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_tab_01,container,false)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val myTitleDataset = Datasource().loadTitles()
-        val myTextDataset = Datasource().loadTexts()
-        val myImageDataset = Datasource().loadImages()
+        val myDataset = Datasource()
         val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
-        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset, myTextDataset, myImageDataset)
+        recyclerView.adapter = ItemAdapter(requireContext(), myDataset.loadTitles(), myDataset.loadTexts(), myDataset.loadImages())
         recyclerView.setHasFixedSize(true)
     }
 }
@@ -33,13 +32,12 @@ class Tab02Fragment: Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_tab_02,container,false)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val myTitleDataset = Datasource().loadTitles()
-        val myTextDataset = Datasource().loadTexts()
-        val myImageDataset = Datasource().loadImages()
+        val myDataset = Datasource()
         val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
-        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset, myTextDataset, myImageDataset)
+        recyclerView.adapter = ItemAdapter(requireContext(), myDataset.loadTitles(), myDataset.loadTexts(), myDataset.loadImages())
         recyclerView.setHasFixedSize(true)
     }
 }

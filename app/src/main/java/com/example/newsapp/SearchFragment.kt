@@ -41,11 +41,11 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val myTitleDataset = Datasource().loadTitles()
-        val myTextDataset = Datasource().loadTexts()
-        val myImageDataset = Datasource().loadImages()
+        val titleDataset = Datasource().loadTitles()
+        val textDataset = Datasource().loadTexts()
+        val imageDataset = Datasource().loadImages()
         val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
-        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset, myTextDataset, myImageDataset)
+        recyclerView.adapter = ItemAdapter(requireContext(), titleDataset, textDataset, imageDataset)
         recyclerView.setHasFixedSize(true)
     }
 
