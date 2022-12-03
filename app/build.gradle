@@ -15,6 +15,19 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // local.propertiesのデータをBuildConfigに追加する。
+        def localPropertiesFile = file("${rootDir.path}/local.properties")
+        if (localPropertiesFile.exists()) {
+            def localProperties = new Properties()
+            localProperties.load(localPropertiesFile.newDataInputStream())
+
+            def rssLifehacker = "${localProperties["rss.lifehacker"]}"
+            buildConfigField("String", "RSS_LIFEHACKER", "\"${rssLifehacker}\"")
+        } else {
+            def empty = ""
+            buildConfigField("String", "RSS_LIFEHACKER", "\"${empty}\"")
+        }
     }
 
     buildTypes {
