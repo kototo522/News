@@ -33,11 +33,9 @@ class FavoriteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val myTitleDataset = Datasource().loadTitles()
-        val myTextDataset = Datasource().loadTexts()
-        val myImageDataset = Datasource().loadImages()
+        val dataset = Datasource()
         val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
-        recyclerView.adapter = ItemAdapter(requireContext(), myTitleDataset, myTextDataset, myImageDataset)
+        recyclerView.adapter = ItemAdapter(requireContext(), dataset.loadTitles(), dataset.loadTexts(), dataset.loadImages())
         recyclerView.setHasFixedSize(true)
     }
 
