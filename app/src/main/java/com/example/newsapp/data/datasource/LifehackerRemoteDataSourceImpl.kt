@@ -24,12 +24,12 @@ class LifehackerRemoteDataSourceImpl(
       val feed = SyndFeedInput().build(xmlReader)
 
       feed.entries.mapNotNull { entity ->
-        entity.toLifehackerArticleDataSourceModel()
+        entity.toLifehackerContentDataSourceModel()
       }
     }
   }
 
-  private fun SyndEntry.toLifehackerArticleDataSourceModel(): LifehackerContentDataSourceModel? {
+  private fun SyndEntry.toLifehackerContentDataSourceModel(): LifehackerContentDataSourceModel? {
     return try {
       LifehackerContentDataSourceModel(
         title = valueOrNull { title },
