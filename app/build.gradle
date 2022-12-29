@@ -15,6 +15,19 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // local.propertiesのデータをBuildConfigに追加する。
+        def localPropertiesFile = file("${rootDir.path}/local.properties")
+        if (localPropertiesFile.exists()) {
+            def localProperties = new Properties()
+            localProperties.load(localPropertiesFile.newDataInputStream())
+
+            def rssLifehacker = "${localProperties["rss.lifehacker"]}"
+            buildConfigField("String", "RSS_LIFEHACKER", "\"${rssLifehacker}\"")
+        } else {
+            def empty = ""
+            buildConfigField("String", "RSS_LIFEHACKER", "\"${empty}\"")
+        }
     }
 
     buildTypes {
@@ -58,6 +71,8 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+
     // Feature module Support
     implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
 
@@ -69,4 +84,12 @@ dependencies {
 
     // Jetpack Compose Integration
     implementation("androidx.navigation:navigation-compose:$nav_version")
+
+    def ktor_version = "2.1.3"
+    implementation("io.ktor:ktor-client-core:$ktor_version")
+    implementation("io.ktor:ktor-client-okhttp:$ktor_version")
+    implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+    implementation("io.ktor:ktor-serialization-kotlinx-xml:$ktor_version")
+
+    implementation("com.rometools:rome:1.18.0")
 }
