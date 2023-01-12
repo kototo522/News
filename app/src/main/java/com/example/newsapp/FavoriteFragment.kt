@@ -1,10 +1,10 @@
 package com.example.newsapp
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,7 +35,7 @@ class FavoriteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val dataset = Datasource()
         val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
-        recyclerView.adapter = ItemAdapter(requireContext(), dataset.loadTitles(), dataset.loadTexts(), dataset.loadImages())
+        recyclerView.adapter = ItemAdapter(emptyList(), dataset.loadImages())
         recyclerView.setHasFixedSize(true)
     }
 
