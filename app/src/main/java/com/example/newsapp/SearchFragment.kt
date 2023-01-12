@@ -1,18 +1,11 @@
 package com.example.newsapp
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.semantics.Role.Companion.Image
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import coil.ImageLoader
-import coil.compose.rememberImagePainter
-import coil.load
-import coil.request.ImageRequest
-import com.example.newsapp.databinding.FragmentSearchBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,7 +36,7 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val dataset = Datasource()
         val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
-        recyclerView.adapter = ItemAdapter(requireContext(), dataset.loadTitles(), dataset.loadTexts(), dataset.loadImages())
+        recyclerView.adapter = ItemAdapter(emptyList(), dataset.loadImages())
         recyclerView.setHasFixedSize(true)
     }
 
