@@ -4,8 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
+import com.example.newsapp.data.datasource.LifehackerRemoteDataSourceImpl
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,9 +28,9 @@ class SearchFragment : Fragment() {
         }
     }
 
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_search, container, false)
@@ -34,10 +38,21 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val dataset = Datasource()
+        val dataset = LifehackerRemoteDataSourceImpl()
         val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
-        recyclerView.adapter = ItemAdapter(emptyList(), dataset.loadImages())
-        recyclerView.setHasFixedSize(true)
+
+        lifecycleScope.launch {
+            val result = dataset.fetchContents()
+            result.fold(
+                onSuccess = {
+                    recyclerView.adapter = ItemAdapter(it)
+                    recyclerView.setHasFixedSize(true)
+                },
+                onFailure = {
+                    Toast.makeText(context, R.string.app_name, Toast.LENGTH_SHORT).show()
+                }
+            )
+        }
     }
 
     companion object {

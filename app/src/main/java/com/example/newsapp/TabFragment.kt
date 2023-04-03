@@ -29,7 +29,7 @@ class Tab01Fragment : Fragment() {
             val result = dataset.fetchContents()
             result.fold(
                 onSuccess = {
-                    recyclerView.adapter = ItemAdapter(it, Datasource().loadImages())
+                    recyclerView.adapter = ItemAdapter(it)
                     recyclerView.setHasFixedSize(true)
                 },
                 onFailure = {
@@ -51,9 +51,20 @@ class Tab02Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val myDataset = Datasource()
+        val dataset = LifehackerRemoteDataSourceImpl()
         val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
-        recyclerView.adapter = ItemAdapter(emptyList(), myDataset.loadImages())
-        recyclerView.setHasFixedSize(true)
+
+        lifecycleScope.launch {
+            val result = dataset.fetchContents()
+            result.fold(
+                onSuccess = {
+                    recyclerView.adapter = ItemAdapter(it)
+                    recyclerView.setHasFixedSize(true)
+                },
+                onFailure = {
+                    Toast.makeText(context, R.string.app_name, Toast.LENGTH_SHORT).show()
+                }
+            )
+        }
     }
 }
