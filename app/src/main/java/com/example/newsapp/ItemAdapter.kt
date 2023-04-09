@@ -24,10 +24,6 @@ class ItemAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context)
         val item = adapterLayout.inflate(R.layout.card_item, parent, false)
-        // クリックは検知した(positionがとってこれない)
-//        ItemViewHolder(adapterLayout).itemView.setOnClickListener(View.OnClickListener { v ->
-//            Toast.makeText(v.context, "aaaaa", Toast.LENGTH_SHORT).show()
-//        })
         return ItemViewHolder(item)
     }
 
