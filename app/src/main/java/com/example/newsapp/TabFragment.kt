@@ -29,8 +29,15 @@ class Tab01Fragment : Fragment() {
             val result = dataset.fetchContents()
             result.fold(
                 onSuccess = {
-                    recyclerView.adapter = ItemAdapter(it)
+                    val adapter= ItemAdapter(it)
+                    recyclerView.adapter = adapter
                     recyclerView.setHasFixedSize(true)
+
+                    adapter.setOnItemClickListener(object: ItemAdapter.OnItemClickListener{
+                        override fun onItemClickListener(view: View, position: Int, clickedLink: String) {
+                            Toast.makeText(requireContext(), "${clickedLink}がタップされました", Toast.LENGTH_LONG).show()
+                        }
+                    })
                 },
                 onFailure = {
                     Toast.makeText(context, R.string.app_name, Toast.LENGTH_SHORT).show()
