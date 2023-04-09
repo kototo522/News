@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -40,12 +41,19 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val dataset = LifehackerRemoteDataSourceImpl()
         val recyclerView: RecyclerView = view.findViewById(R.id.Recycler_view)
+//        val webView: WebView = view.findViewById(R.id.webView)
 
         lifecycleScope.launch {
             val result = dataset.fetchContents()
             result.fold(
                 onSuccess = {
-                    recyclerView.adapter = ItemAdapter(it)
+                    val adapter = ItemAdapter(it)
+//                    adapter.setOnItemClickListener(object: ItemAdapter.OnItemClickListener{
+//                        override fun onItemClickListener(view: View, position: Int, clickedLink: String) {
+//                            webView.loadUrl(clickedLink)
+//                        }
+//                    })
+                    recyclerView.adapter = adapter
                     recyclerView.setHasFixedSize(true)
                 },
                 onFailure = {
