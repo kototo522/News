@@ -3,12 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/frame.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/appbar_item.xml" value="0.1953125" />
+        <entry key="app/src/main/res/layout/card_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_favolite.xml" value="0.15052083333333333" />
-        <entry key="app/src/main/res/layout/fragment_favorite.xml" value="0.22135416666666666" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2630208333333333" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.15052083333333333" />
+        <entry key="app/src/main/res/layout/fragment_favorite.xml" value="0.1827484130859375" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.14065246582031257" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.18323516845703125" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.2953703703703704" />
+        <entry key="app/src/main/res/layout/fragment_tab.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout/fragment_tab_01.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_tab_02.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/search_list_item.xml" value="0.1" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.25286892651839843" />
       </map>
     </option>

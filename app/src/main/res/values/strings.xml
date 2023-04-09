@@ -1,5 +1,29 @@
 <resources>
     <string name="app_name">NewsApp</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">TITLE</string>
+    <string name="textview">TextView</string>
+
+    <string name="titleList1">title1</string>
+    <string name="titleList2">title2</string>
+    <string name="titleList3">title3</string>
+    <string name="titleList4">title4</string>
+    <string name="titleList5">title5</string>
+    <string name="titleList6">title6</string>
+    <string name="titleList7">title7</string>
+    <string name="titleList8">title8</string>
+    <string name="titleList9">title9</string>
+    <string name="titleList10">title10</string>
+
+    <string name="textList1">text1</string>
+    <string name="textList2">text2</string>
+    <string name="textList3">text3</string>
+    <string name="textList4">text4</string>
+    <string name="textList5">text5</string>
+    <string name="textList6">text6</string>
+    <string name="textList7">text7</string>
+    <string name="textList8">text8</string>
+    <string name="textList9">text9</string>
+    <string name="textList10">text10</string>
+
 </resources>
